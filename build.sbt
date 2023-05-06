@@ -3,7 +3,7 @@
 // See http://www.foundweekends.org/giter8/testing.html#Using+the+Giter8Plugin for more details.
 lazy val root = (project in file("."))
   .settings(
-    name := "akka-scala-seed",
+    name := "pekko-scala-seed",
     Test / test := {
       val _ = (Test / g8Test).toTask("").value
     },

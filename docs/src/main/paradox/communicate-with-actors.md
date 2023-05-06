@@ -13,10 +13,10 @@ It is in a suspended state in which it does not consume any resources apart from
 To put a message into an Actor's mailbox, use the `!` (bang) method on the `ActorRef`. 
 For example, the main class of Hello World sends messages to the `GreeterMain` Actor like this:
  
-@@snip [AkkaQuickstart.scala](/src/main/g8/src/main/scala/$package$/AkkaQuickstart.scala) { #main-send-messages }
+@@snip [PekkoQuickstart.scala](/src/main/g8/src/main/scala/$package$/PekkoQuickstart.scala) { #main-send-messages }
  
 The `Greeter` Actor also sends a message to acknowledge it has received the greeting:
  
-@@snip [AkkaQuickstart.scala](/src/main/g8/src/main/scala/$package$/AkkaQuickstart.scala) { #greeter-send-messages }
+@@snip [PekkoQuickstart.scala](/src/main/g8/src/main/scala/$package$/PekkoQuickstart.scala) { #greeter-send-messages }
  
 We've looked at how to define actor behavior and send messages. Now, let's review by looking at the `Main` class in its entirety. 

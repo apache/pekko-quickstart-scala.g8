@@ -8,7 +8,7 @@ sbt uses a `build.sbt` file to handle the project. This project's `build.sbt` fi
  
 @@snip [build.sbt]($g8root$/build.sbt)
  
-This build file is very simple. In essence, it creates one project `hello-akka-scala` and declares project dependencies. We must also declare what version of sbt to use and this is done in the file `project/build.properties`:
+This build file is very simple. In essence, it creates one project `hello-pekko-scala` and declares project dependencies. We must also declare what version of sbt to use and this is done in the file `project/build.properties`:
  
 @@snip [build.properties]($g8root$/project/build.properties)
  
@@ -23,18 +23,18 @@ Just as you did earlier, run the application from a console:
    The output should look _something_ like this (scroll all the way to the right to see the Actor output):
 
 ```
-[2019-10-09 09:55:23,390] [INFO] [com.example.Greeter$] [AkkaQuickStart-akka.actor.default-dispatcher-5]
-[akka://AkkaQuickStart/user/greeter] - Hello Charles!
-[2019-10-09 09:55:23,392] [INFO] [com.example.GreeterBot$] [AkkaQuickStart-akka.actor.default-dispatcher-3]
-[akka://AkkaQuickStart/user/Charles] - Greeting 1 for Charles
-[2019-10-09 09:55:23,392] [INFO] [com.example.Greeter$] [AkkaQuickStart-akka.actor.default-dispatcher-5]
-[akka://AkkaQuickStart/user/greeter] - Hello Charles!
-[2019-10-09 09:55:23,392] [INFO] [com.example.GreeterBot$] [AkkaQuickStart-akka.actor.default-dispatcher-3]
-[akka://AkkaQuickStart/user/Charles] - Greeting 2 for Charles
-[2019-10-09 09:55:23,392] [INFO] [com.example.Greeter$] [AkkaQuickStart-akka.actor.default-dispatcher-5]
-[akka://AkkaQuickStart/user/greeter] - Hello Charles!
-[2019-10-09 09:55:23,392] [INFO] [com.example.GreeterBot$] [AkkaQuickStart-akka.actor.default-dispatcher-3]
-[akka://AkkaQuickStart/user/Charles] - Greeting 3 for Charles
+[2019-10-09 09:55:23,390] [INFO] [com.example.Greeter$] [PekkoQuickstart-pekko.actor.default-dispatcher-5]
+[pekko://PekkoQuickstart/user/greeter] - Hello Charles!
+[2019-10-09 09:55:23,392] [INFO] [com.example.GreeterBot$] [PekkoQuickstart-pekko.actor.default-dispatcher-3]
+[pekko://PekkoQuickstart/user/Charles] - Greeting 1 for Charles
+[2019-10-09 09:55:23,392] [INFO] [com.example.Greeter$] [PekkoQuickstart-pekko.actor.default-dispatcher-5]
+[pekko://PekkoQuickstart/user/greeter] - Hello Charles!
+[2019-10-09 09:55:23,392] [INFO] [com.example.GreeterBot$] [PekkoQuickstart-pekko.actor.default-dispatcher-3]
+[pekko://PekkoQuickstart/user/Charles] - Greeting 2 for Charles
+[2019-10-09 09:55:23,392] [INFO] [com.example.Greeter$] [PekkoQuickstart-pekko.actor.default-dispatcher-5]
+[pekko://PekkoQuickstart/user/greeter] - Hello Charles!
+[2019-10-09 09:55:23,392] [INFO] [com.example.GreeterBot$] [PekkoQuickstart-pekko.actor.default-dispatcher-3]
+[pekko://PekkoQuickstart/user/Charles] - Greeting 3 for Charles
 
 ```
  
@@ -47,4 +47,4 @@ To run the tests, enter `test` at the sbt prompt.
 
 If you use IntelliJ, try integrating the sample project with @ref:[IntelliJ IDEA](intellij-idea.md).
 
-To continue learning more about Akka and Actor Systems, look at the [Getting Started Guide](http://doc.akka.io/docs/akka/current/scala/guide/introduction.html) next. Happy hakking!
+To continue learning more about Pekko and Actor Systems, look at the [Getting Started Guide](https://org.apache.pekko/docs/pekko/current/scala/guide/introduction.html) next. Happy coding!

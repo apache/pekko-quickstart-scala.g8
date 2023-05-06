@@ -1,29 +1,13 @@
-# Akka Actors Quickstart with Scala
+# Apache Pekko Actors Quickstart with Scala
  
-Akka is a toolkit and runtime for building highly concurrent, distributed, and fault-tolerant event-driven applications on the JVM. Akka can be used with both Java and Scala.
-This guide introduces Akka Actors by describing the Scala version of the Hello World example. If you prefer to use Akka with Java, switch to the [Akka Quickstart with Java guide](https://developer.lightbend.com/guides/akka-quickstart-java/).
+Pekko is a toolkit and runtime for building highly concurrent, distributed, and fault-tolerant event-driven applications on the JVM. Pekko can be used with both Java and Scala.
+This guide introduces Pekko Actors by describing the Scala version of the Hello World example. If you prefer to use Pekko with Java, switch to the Pekko Quickstart with Java guide.
 
-Actors are the unit of execution in Akka. The Actor model is an abstraction that makes it easier to write correct concurrent, parallel and distributed systems. 
-The Hello World example illustrates Akka basics. Within 30 minutes, you should be able to download and run the example and use this guide to understand how the example is constructed. 
-This will get your feet wet, and hopefully inspire you to dive deeper into the wonderful sea of Akka!
+Actors are the unit of execution in Pekko. The Actor model is an abstraction that makes it easier to write correct concurrent, parallel and distributed systems. 
+The Hello World example illustrates Pekko basics. Within 30 minutes, you should be able to download and run the example and use this guide to understand how the example is constructed. 
+This will get your feet wet, and hopefully inspire you to dive deeper into the wonderful sea of Pekko!
 
-After trying this example the comprehensive [Getting Started Guide](http://doc.akka.io/docs/akka/2.6/scala/guide/introduction.html) is a good next step to continue learning more about Akka.
-
-The [Akka Platform Guide](https://developer.lightbend.com/docs/akka-platform-guide/) discusses more Akka concepts and features and gives an overview of Akka as a toolkit.
-
-## Downloading the example 
-
-The Hello World example for Scala is a zipped project that includes a distribution of sbt (build tool). You can run it on Linux, MacOS, or Windows. The only prerequisite is Java 8.
-
-Download and unzip the example:
-
-1. Download and extract the [zip file](https://example.lightbend.com/v1/download/akka-quickstart-scala?name=akka-quickstart-scala) to a convenient location: 
-  - On Linux and OSX systems, open a terminal and use the command `unzip akka-quickstart-scala.zip`. Note: On OSX, if you unzip using Archiver, you also have to make the sbt files executable:
-```
-$ chmod u+x ./sbt
-$ chmod u+x ./sbt-dist/bin/sbt
-```
-  - On Windows, use a tool such as File Explorer to extract the project. 
+After trying this example the comprehensive [Getting Started Guide](https://pekko.apache.org/docs/pekko/current/scala/guide/introduction.html) is a good next step to continue learning more about Pekko.
 
 ## Running the example
 
@@ -32,7 +16,7 @@ To run Hello World:
 1. In a console, change directories to the top level of the unzipped project.
  
     For example, if you used the default project name, akka-quickstart-scala, and extracted the project to your root directory,
-    from the root directory, enter: `cd akka-quickstart-scala`
+    from the root directory, enter: `cd pekko-quickstart-scala`
 
 1. Enter `./sbt` on OSX/Linux or `sbt.bat` on Windows to start sbt.
  
@@ -45,21 +29,21 @@ To run Hello World:
 The output should look _something_ like this (scroll all the way to the right to see the Actor output):
 
 ```
-[2019-10-09 09:55:23,390] [INFO ] [com.example.Greeter$] [AkkaQuickStart-akka.actor.default-dispatcher-5]
-[akka://AkkaQuickStart/user/greeter] - Hello Charles!
-[2019-10-09 09:55:23,392] [INFO ] [com.example.GreeterBot$] [AkkaQuickStart-akka.actor.default-dispatcher-3]
-[akka://AkkaQuickStart/user/Charles] - Greeting 1 for Charles
-[2019-10-09 09:55:23,392] [INFO ] [com.example.Greeter$] [AkkaQuickStart-akka.actor.default-dispatcher-5]
-[akka://AkkaQuickStart/user/greeter] - Hello Charles!
-[2019-10-09 09:55:23,392] [INFO ] [com.example.GreeterBot$] [AkkaQuickStart-akka.actor.default-dispatcher-3]
-[akka://AkkaQuickStart/user/Charles] - Greeting 2 for Charles
-[2019-10-09 09:55:23,392] [INFO ] [com.example.Greeter$] [AkkaQuickStart-akka.actor.default-dispatcher-5]
-[akka://AkkaQuickStart/user/greeter] - Hello Charles!
-[2019-10-09 09:55:23,392] [INFO ] [com.example.GreeterBot$] [AkkaQuickStart-akka.actor.default-dispatcher-3]
-[akka://AkkaQuickStart/user/Charles] - Greeting 3 for Charles
+[2019-10-09 09:55:23,390] [INFO ] [com.example.Greeter$] [PekkoQuickstart-pekko.actor.default-dispatcher-5]
+[pekko://PekkoQuickstart/user/greeter] - Hello Charles!
+[2019-10-09 09:55:23,392] [INFO ] [com.example.GreeterBot$] [PekkoQuickstart-pekko.actor.default-dispatcher-3]
+[pekko://PekkoQuickstart/user/Charles] - Greeting 1 for Charles
+[2019-10-09 09:55:23,392] [INFO ] [com.example.Greeter$] [PekkoQuickstart-pekko.actor.default-dispatcher-5]
+[pekko://PekkoQuickstart/user/greeter] - Hello Charles!
+[2019-10-09 09:55:23,392] [INFO ] [com.example.GreeterBot$] [PekkoQuickstart-pekko.actor.default-dispatcher-3]
+[pekko://PekkoQuickstart/user/Charles] - Greeting 2 for Charles
+[2019-10-09 09:55:23,392] [INFO ] [com.example.Greeter$] [PekkoQuickstart-pekko.actor.default-dispatcher-5]
+[pekko://PekkoQuickstart/user/greeter] - Hello Charles!
+[2019-10-09 09:55:23,392] [INFO ] [com.example.GreeterBot$] [PekkoQuickstart-pekko.actor.default-dispatcher-3]
+[pekko://PekkoQuickstart/user/Charles] - Greeting 3 for Charles
 ```
    
-Congratulations, you just ran your first Akka app. Now take a look at what happened under the covers. 
+Congratulations, you just ran your first Pekko app. Now take a look at what happened under the covers. 
 
 ## What Hello World does
 
@@ -71,7 +55,7 @@ The example consists of three actors:
 
 ## Benefits of using the Actor Model
 
-The following characteristics of Akka allow you to solve difficult concurrency and scalability challenges in an intuitive way: 
+The following characteristics of Pekko allow you to solve difficult concurrency and scalability challenges in an intuitive way: 
 
 * Event-driven model &#8212; Actors perform work in response to messages. Communication between Actors is asynchronous, allowing Actors to send messages and continue their own work without blocking to wait for a reply.
 * Strong isolation principles &#8212; Unlike regular objects in Scala, an Actor does not have a public API in terms of methods that you can invoke. Instead, its public API is defined through messages that the actor handles. This prevents any sharing of state between Actors; the only way to observe another actor's state is by sending it a message asking for it.

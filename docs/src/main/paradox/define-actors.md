@@ -23,7 +23,7 @@ Let's see how the objects and Behavior implementations for `Greeter`, `GreeterBo
 
 ### The Greeter actor
 
-@@snip [AkkaQuickstart.scala](/src/main/g8/src/main/scala/$package$/AkkaQuickstart.scala) { #greeter-actor }
+@@snip [PekkoQuickstart.scala](/src/main/g8/src/main/scala/$package$/PekkoQuickstart.scala) { #greeter-actor }
 
 This piece of code defines two message types, one for commanding the
 Actor to greet someone and one that the Actor will use to confirm that it has
@@ -62,7 +62,7 @@ wrapped scope—the `Greeter` object.
  
 ### The Greeter bot actor
 
-@@snip [AkkaQuickstart.scala](/src/main/g8/src/main/scala/$package$/AkkaQuickstart.scala) { #greeter-bot }
+@@snip [PekkoQuickstart.scala](/src/main/g8/src/main/scala/$package$/PekkoQuickstart.scala) { #greeter-bot }
 
 Note how this Actor manages the counter by changing the behavior for each `Greeted` reply
 rather than using any variables. 
@@ -73,5 +73,5 @@ message at a time.
 
 A third actor spawns the `Greeter` and the `GreeterBot` and starts the interaction, creating actors. What `spawn` does is discussed next.
 
-@@snip [AkkaQuickstart.scala](/src/main/g8/src/main/scala/$package$/AkkaQuickstart.scala) { #greeter-main }
+@@snip [PekkoQuickstart.scala](/src/main/g8/src/main/scala/$package$/PekkoQuickstart.scala) { #greeter-main }
 

@@ -2,10 +2,10 @@
 package $package$
 
 
-import akka.actor.typed.ActorRef
-import akka.actor.typed.ActorSystem
-import akka.actor.typed.Behavior
-import akka.actor.typed.scaladsl.Behaviors
+import org.apache.pekko.actor.typed.ActorRef
+import org.apache.pekko.actor.typed.ActorSystem
+import org.apache.pekko.actor.typed.Behavior
+import org.apache.pekko.actor.typed.scaladsl.Behaviors
 import $package$.GreeterMain.SayHello
 
 //#greeter-actor
@@ -67,9 +67,9 @@ object GreeterMain {
 //#greeter-main
 
 //#main-class
-object AkkaQuickstart extends App {
+object PekkoQuickstart extends App {
   //#actor-system
-  val greeterMain: ActorSystem[GreeterMain.SayHello] = ActorSystem(GreeterMain(), "AkkaQuickStart")
+  val greeterMain: ActorSystem[GreeterMain.SayHello] = ActorSystem(GreeterMain(), "PekkoQuickstart")
   //#actor-system
 
   //#main-send-messages

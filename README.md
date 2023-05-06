@@ -1,14 +1,12 @@
-# Akka Quickstart with Scala
+# Apache Pekko Quickstart with Scala
 
 ## Quickstart guide
 
-This example is described in the [Akka Quickstart with Scala guide](https://developer.lightbend.com/guides/akka-quickstart-scala/)
-
-The Hello World example illustrates Akka basics. Within 30 minutes, you should be able to download and run the example and use this guide to understand how the example is constructed. This will get your feet wet, and hopefully inspire you to dive deeper into the wonderful sea of Akka!
+The Hello World example illustrates Pekko basics. Within 30 minutes, you should be able to download and run the example and use this guide to understand how the example is constructed. This will get your feet wet, and hopefully inspire you to dive deeper into the wonderful world of Apache Pekko!
 
 ## Giter8 template
 
-It can also be used as a [Giter8][g8] template for Akka with Scala.
+It can also be used as a [Giter8][g8] template for Apache Pekko with Scala.
 
 Prerequisites:
 - JDK 8
@@ -16,7 +14,7 @@ Prerequisites:
 
 Open a console and run the following command to apply this template:
  ```
-sbt -Dsbt.version=1.3.6 new akka/akka-quickstart-scala.g8
+sbt -Dsbt.version=1.8.2 new pjfanning/pekko-quickstart-scala.g8
  ```
 
 This template will prompt for the name of the project. Press `Enter` if the default values suit you.
