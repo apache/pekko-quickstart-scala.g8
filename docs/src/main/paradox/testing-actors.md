@@ -1,6 +1,6 @@
 ## Testing Actors
  
-The test in the Hello World example illustrates use of the [ScalaTest](http://www.scalatest.org/) framework. The test coverage is not complete. It simply shows how easy it is to test actor code and provides some basic concepts. You could add to it as an exercise to increase your own knowledge.  
+The test in the Hello World example illustrates use of the [ScalaTest](https://www.scalatest.org/) framework. The test coverage is not complete. It simply shows how easy it is to test actor code and provides some basic concepts. You could add to it as an exercise to increase your own knowledge.  
 
 ### Test class definition
 
