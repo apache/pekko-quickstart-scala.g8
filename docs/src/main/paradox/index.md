@@ -9,9 +9,16 @@ This will get your feet wet, and hopefully inspire you to dive deeper into the w
 
 After trying this example the comprehensive [Getting Started Guide](https://pekko.apache.org/docs/pekko/current/scala/guide/introduction.html) is a good next step to continue learning more about Pekko.
 
-## Running the example
+## Install
 
-Create a new project using `sbt new apache/incubator-pekko-quickstart-scala.g8`.
+The easiest way to setup this project is use [sbt](https://www.scala-sbt.org).
+
+Open a Terminal window and run the following command. It will create a subdirectory with the example code in it.
+```
+sbt new apache/incubator-pekko-quickstart-scala.g8
+```
+
+## Running the example
 
 To run Hello World:
 
