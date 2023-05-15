@@ -11,9 +11,17 @@ lazy val root = (project in file("."))
     resolvers += Resolver.url("typesafe", url("https://repo.typesafe.com/typesafe/ivy-releases/"))(Resolver.ivyStylePatterns)
   )
 
+import org.apache.pekko.PekkoParadoxPlugin.autoImport._
+
+def themeSettings = Seq(
+  // allow access to snapshots for pekko-sbt-paradox
+  resolvers += Resolver.ApacheMavenSnapshotsRepo,
+  pekkoParadoxGithub := Some("https://github.com/apache/incubator-pekko-quickstart-scala.g8"))
+
 // Documentation for this project:
-//    sbt "project docs" "~ paradox"
+//    sbt "docs/paradox"
 //    open docs/target/paradox/site/main/index.html
 lazy val docs = (project in file("docs"))
-  .enablePlugins(ParadoxPlugin)
+  .enablePlugins(ParadoxPlugin, PekkoParadoxPlugin)
   .disablePlugins(Giter8Plugin)
+  .settings(themeSettings)

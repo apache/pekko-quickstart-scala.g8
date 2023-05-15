@@ -5,9 +5,18 @@ This guide introduces Pekko Actors by describing the Scala version of the Hello 
 
 Actors are the unit of execution in Pekko. The Actor model is an abstraction that makes it easier to write correct concurrent, parallel and distributed systems. 
 The Hello World example illustrates Pekko basics. Within 30 minutes, you should be able to download and run the example and use this guide to understand how the example is constructed. 
-This will get your feet wet, and hopefully inspire you to dive deeper into the wonderful sea of Pekko!
+This will get your feet wet, and hopefully inspire you to dive deeper into the wonderful world of Pekko!
 
 After trying this example the comprehensive [Getting Started Guide](https://pekko.apache.org/docs/pekko/current/scala/guide/introduction.html) is a good next step to continue learning more about Pekko.
+
+## Install
+
+The easiest way to setup this project is use [sbt](https://www.scala-sbt.org).
+
+Open a Terminal window and run the following command. It will create a subdirectory with the example code in it.
+```
+sbt new apache/incubator-pekko-quickstart-scala.g8
+```
 
 ## Running the example
 
@@ -15,7 +24,7 @@ To run Hello World:
 
 1. In a console, change directories to the top level of the unzipped project.
  
-    For example, if you used the default project name, akka-quickstart-scala, and extracted the project to your root directory,
+    For example, if you used the default project name, pekko-quickstart-scala, and extracted the project to your root directory,
     from the root directory, enter: `cd pekko-quickstart-scala`
 
 1. Enter `./sbt` on OSX/Linux or `sbt.bat` on Windows to start sbt.
