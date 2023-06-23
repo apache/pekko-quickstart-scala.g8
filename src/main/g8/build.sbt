@@ -2,7 +2,7 @@ name := "$name$"
 
 version := "1.0"
 
-scalaVersion := "2.13.10"
+scalaVersion := "2.13.11"
 
 lazy val pekkoVersion = "$pekko_version$"
 
@@ -16,7 +16,7 @@ resolvers += "Apache Nexus Snapshots".at("https://repository.apache.org/content/
 
 libraryDependencies ++= Seq(
   "org.apache.pekko" %% "pekko-actor-typed" % pekkoVersion,
-  "ch.qos.logback" % "logback-classic" % "1.2.11",
+  "ch.qos.logback" % "logback-classic" % "1.2.12",
   "org.apache.pekko" %% "pekko-actor-testkit-typed" % pekkoVersion % Test,
   "org.scalatest" %% "scalatest" % "3.2.15" % Test
 )
