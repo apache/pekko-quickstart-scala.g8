@@ -12,8 +12,6 @@ lazy val pekkoVersion = "$pekko_version$"
 // sbt tasks, consider https://github.com/spray/sbt-revolver/
 fork := true
 
-resolvers += "Apache Nexus Snapshots".at("https://repository.apache.org/content/repositories/snapshots/")
-
 libraryDependencies ++= Seq(
   "org.apache.pekko" %% "pekko-actor-typed" % pekkoVersion,
   "ch.qos.logback" % "logback-classic" % "1.2.12",
