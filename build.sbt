@@ -14,8 +14,6 @@ lazy val root = (project in file("."))
 import org.apache.pekko.PekkoParadoxPlugin.autoImport._
 
 def themeSettings = Seq(
-  // allow access to snapshots for pekko-sbt-paradox
-  resolvers += Resolver.ApacheMavenSnapshotsRepo,
   pekkoParadoxGithub := Some("https://github.com/apache/incubator-pekko-quickstart-scala.g8"))
 
 // Documentation for this project:
