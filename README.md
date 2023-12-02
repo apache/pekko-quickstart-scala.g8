@@ -2,7 +2,7 @@
 
 ## Quickstart guide
 
-The Hello World example illustrates Pekko basics. Within 30 minutes, you should be able to download and run the example and use this guide to understand how the example is constructed. This will get your feet wet, and hopefully inspire you to dive deeper into the wonderful world of Apache Pekko!
+The Hello World example illustrates Apache Pekko basics. Within 30 minutes, you should be able to download and run the example and use this guide to understand how the example is constructed. This will get your feet wet, and hopefully inspire you to dive deeper into the wonderful world of Apache Pekko!
 
 ## Giter8 template
 
@@ -14,7 +14,7 @@ Prerequisites:
 
 Open a console and run the following command to apply this template:
  ```
-sbt -Dsbt.version=1.9.4 new apache/incubator-pekko-quickstart-scala.g8
+sbt -Dsbt.version=1.9.7 new apache/incubator-pekko-quickstart-scala.g8
  ```
 
 This template will prompt for the name of the project. Press `Enter` if the default values suit you.
