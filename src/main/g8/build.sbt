@@ -2,7 +2,7 @@ name := "$name$"
 
 version := "1.0"
 
-scalaVersion := "2.13.12"
+scalaVersion := "2.13.13"
 
 lazy val pekkoVersion = "$pekko_version$"
 
@@ -16,5 +16,5 @@ libraryDependencies ++= Seq(
   "org.apache.pekko" %% "pekko-actor-typed" % pekkoVersion,
   "ch.qos.logback" % "logback-classic" % "1.2.13",
   "org.apache.pekko" %% "pekko-actor-testkit-typed" % pekkoVersion % Test,
-  "org.scalatest" %% "scalatest" % "3.2.17" % Test
+  "org.scalatest" %% "scalatest" % "3.2.18" % Test
 )
