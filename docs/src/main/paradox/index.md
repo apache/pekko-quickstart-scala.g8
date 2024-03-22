@@ -15,7 +15,7 @@ The easiest way to setup this project is use [sbt](https://www.scala-sbt.org).
 
 Open a Terminal window and run the following command. It will create a subdirectory with the example code in it.
 ```
-sbt new apache/incubator-pekko-quickstart-scala.g8
+sbt new apache/pekko-quickstart-scala.g8
 ```
 
 ## Running the example
