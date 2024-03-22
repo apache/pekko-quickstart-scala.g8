@@ -13,7 +13,7 @@ lazy val root = (project in file("."))
 import org.apache.pekko.PekkoParadoxPlugin.autoImport._
 
 def themeSettings = Seq(
-  pekkoParadoxGithub := Some("https://github.com/apache/incubator-pekko-quickstart-scala.g8"))
+  pekkoParadoxGithub := Some("https://github.com/apache/pekko-quickstart-scala.g8"))
 
 // Documentation for this project:
 //    sbt "docs/paradox"
