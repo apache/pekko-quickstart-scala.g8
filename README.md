@@ -14,7 +14,7 @@ Prerequisites:
 
 Open a console and run the following command to apply this template:
  ```
-sbt -Dsbt.version=1.9.9 new apache/pekko-quickstart-scala.g8
+sbt -Dsbt.version=1.10.0 new apache/pekko-quickstart-scala.g8
  ```
 
 This template will prompt for the name of the project. Press `Enter` if the default values suit you.
