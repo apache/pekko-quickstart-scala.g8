@@ -2,7 +2,7 @@ name := "$name$"
 
 version := "1.0"
 
-scalaVersion := "2.13.16"
+scalaVersion := "2.13.18"
 
 lazy val pekkoVersion = "$pekko_version$"
 
