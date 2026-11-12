@@ -35,3 +35,10 @@ This template is distributed without any warranty. See <https://creativecommons.
 [g8]: https://www.foundweekends.org/giter8/
 [sbt]: https://www.scala-sbt.org/
 [sbt_download]: https://www.scala-sbt.org/download.html
+
+## Formatting generated projects
+
+The generated sbt project uses the Apache Pekko Scalafmt configuration.
+Run `sbt applyCodeStyle` to format source and build files, then
+`sbt checkCodeStyle` to check formatting.
+These tasks do not format generated managed sources.
