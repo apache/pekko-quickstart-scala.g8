@@ -22,3 +22,6 @@ libraryDependencies ++= Seq(
 addCommandAlias(
   "sortImports",
   """;scalafixEnable;scalafixAll OrganizeImports""")
+
+addCommandAlias("applyCodeStyle", "scalafmtAll; scalafmtSbt")
+addCommandAlias("checkCodeStyle", "scalafmtCheckAll; scalafmtSbtCheck")

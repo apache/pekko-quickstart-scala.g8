@@ -1,7 +1,6 @@
 //#full-example
 package $package$
 
-
 import org.apache.pekko.actor.typed.ActorRef
 import org.apache.pekko.actor.typed.ActorSystem
 import org.apache.pekko.actor.typed.Behavior
@@ -15,9 +14,9 @@ object Greeter {
 
   def apply(): Behavior[Greet] = Behaviors.receive { (context, message) =>
     context.log.info("Hello {}!", message.whom)
-    //#greeter-send-messages
+    // #greeter-send-messages
     message.replyTo ! Greeted(message.whom, context.self)
-    //#greeter-send-messages
+    // #greeter-send-messages
     Behaviors.same
   }
 }
@@ -51,14 +50,14 @@ object GreeterMain {
 
   def apply(): Behavior[SayHello] =
     Behaviors.setup { context =>
-      //#create-actors
+      // #create-actors
       val greeter = context.spawn(Greeter(), "greeter")
-      //#create-actors
+      // #create-actors
 
       Behaviors.receiveMessage { message =>
-        //#create-actors
+        // #create-actors
         val replyTo = context.spawn(GreeterBot(max = 3), message.name)
-        //#create-actors
+        // #create-actors
         greeter ! Greeter.Greet(message.name, replyTo)
         Behaviors.same
       }
@@ -68,13 +67,13 @@ object GreeterMain {
 
 //#main-class
 object PekkoQuickstart extends App {
-  //#actor-system
+  // #actor-system
   val greeterMain: ActorSystem[GreeterMain.SayHello] = ActorSystem(GreeterMain(), "PekkoQuickstart")
-  //#actor-system
+  // #actor-system
 
-  //#main-send-messages
+  // #main-send-messages
   greeterMain ! SayHello("Charles")
-  //#main-send-messages
+  // #main-send-messages
 }
 //#main-class
 //#full-example

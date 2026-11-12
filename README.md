@@ -47,3 +47,10 @@ remain unexpanded and adjacent to their root import.
 
 The template defaults to sbt 1.13.0, which is compatible with its build plugins.
 The `sbt_version` template parameter remains overridable.
+
+## Formatting generated projects
+
+The generated sbt project uses the Apache Pekko Scalafmt configuration.
+Run `sbt applyCodeStyle` to format source and build files, then
+`sbt checkCodeStyle` to check formatting.
+These tasks do not format generated managed sources.
