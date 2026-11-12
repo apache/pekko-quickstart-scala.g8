@@ -35,3 +35,15 @@ This template is distributed without any warranty. See <https://creativecommons.
 [g8]: https://www.foundweekends.org/giter8/
 [sbt]: https://www.scala-sbt.org/
 [sbt_download]: https://www.scala-sbt.org/download.html
+
+## Organize Scala imports
+
+Generated Scala projects include Scalafix. Run `sbt sortImports` from the
+generated project to organize main and test imports and remove unused imports.
+
+This uses Scalafix 0.14.10 and the OrganizeImports grouping from
+[apache/pekko#3342](https://github.com/apache/pekko/pull/3342). Relative imports
+remain unexpanded and adjacent to their root import.
+
+The template defaults to sbt 1.13.0, which is compatible with its build plugins.
+The `sbt_version` template parameter remains overridable.
