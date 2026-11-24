@@ -13,18 +13,71 @@ jobs:
           # we don't know what commit the last tag was it's safer to get entire repo so previousStableVersion resolves
           fetch-depth: 0
 
+      - name: Identify a README-only pull request
+        id: pr_scope
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+        run: |
+          if python3 -I - <<'PYTHON'
+          import os
+          import re
+          import subprocess
+
+          def git(*args):
+              return subprocess.check_output(["git", *args])
+
+          try:
+              base = os.environ.get("BASE_SHA", "")
+              head = os.environ.get("HEAD_SHA", "")
+              merge = os.environ.get("GITHUB_SHA", "")
+              if not all(re.fullmatch(r"[0-9a-f]{40}", oid) for oid in (base, head, merge)):
+                  raise SystemExit(1)
+              if git("rev-list", "--parents", "-n", "1", "HEAD").split() != [
+                  oid.encode() for oid in (merge, base, head)
+              ]:
+                  raise SystemExit(1)
+              if git("rev-parse", "--is-shallow-repository").strip() != b"false":
+                  raise SystemExit(1)
+              ancestors = git("merge-base", "--all", base, head).decode("ascii").split()
+              if len(ancestors) != 1 or not re.fullmatch(r"[0-9a-f]{40}", ancestors[0]):
+                  raise SystemExit(1)
+
+              def modifies_only_readme(before, after):
+                  diff = git("diff", "--raw", "-z", "--no-abbrev", "--no-renames",
+                             "--no-ext-diff", "--no-textconv", "--ignore-submodules=none", before, after)
+                  return re.fullmatch(
+                      rb":100644 100644 [0-9a-f]{40} [0-9a-f]{40} M\x00README\.md\x00", diff
+                  ) is not None
+
+              # Require README-only changes in both the authored PR and actual merge tree.
+              if not modifies_only_readme(ancestors[0], head) or not modifies_only_readme(base, merge):
+                  raise SystemExit(1)
+          except (OSError, subprocess.SubprocessError):
+              raise SystemExit(1)
+          PYTHON
+          then
+            echo "readme_only=true" >> "$GITHUB_OUTPUT"
+            echo "Root README only; template build and tests were not run." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
       - name: Set up JDK 17
+        if: steps.pr_scope.outputs.readme_only != 'true'
         uses: actions/setup-java@v6.3.0
         with:
           distribution: temurin
           java-version: 17
 
       - name: Install sbt
+        if: steps.pr_scope.outputs.readme_only != 'true'
         uses: sbt/setup-sbt@7e114eae4f32ec3f93c851c2793376a77f384409 # v1.5.15
 
       - name: Cache Coursier cache
+        if: steps.pr_scope.outputs.readme_only != 'true'
         uses: coursier/cache-action@ee0650f98295f27a505e4bfd284c9bfaa913a465 # v9.0.1
 
       - name: generate and test
+        if: steps.pr_scope.outputs.readme_only != 'true'
         # This runs the template with the default parameters, and runs test within the templated app.
         run: sbt -Dfile.encoding=UTF8 -J-XX:ReservedCodeCacheSize=256M test docs/paradox
